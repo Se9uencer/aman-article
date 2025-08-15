@@ -3,122 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>North Creek High Students Clash Over Parking Pass Allocation</title>
+    <title>North Creek High Students Clash Over Parking Pass Allocation - The New York Times</title>
+    <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,700;1,400&family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Georgia, "Times New Roman", serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Charter', Georgia, serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #f8f8f8;
         }
-        
-        .article-container {
+
+        /* NYT Header */
+        .nyt-header {
+            background: #fff;
+            border-bottom: 2px solid #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nyt-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .nyt-logo {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nyt-nav {
+            display: flex;
+            gap: 30px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .nyt-nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nyt-nav a:hover {
+            color: #666;
+        }
+
+        /* Main Container */
+        .main-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        
-        header {
-            border-bottom: 2px solid #000;
-            padding-bottom: 20px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 30px;
             margin-bottom: 30px;
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
+
+        /* Article Header */
+        .article-header {
+            padding: 40px 40px 30px;
+            border-bottom: 1px solid #e2e2e2;
+        }
+
+        .article-category {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 15px;
-            line-height: 1.2;
         }
-        
-        .byline {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .date {
-            font-size: 0.9rem;
-            color: #888;
-            font-style: italic;
-        }
-        
-        article {
-            font-size: 1.1rem;
-        }
-        
-        p {
+
+        .article-title {
+            font-family: 'Charter', Georgia, serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
             margin-bottom: 20px;
+            color: #000;
         }
-        
-        .dateline {
-            font-weight: bold;
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
-        
-        blockquote {
-            border-left: 4px solid #ccc;
-            padding-left: 20px;
-            margin: 25px 0;
-            font-style: italic;
-            font-size: 1.05rem;
-        }
-        
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             font-size: 0.9rem;
             color: #666;
         }
-        
+
+        .article-author {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .article-date {
+            color: #888;
+        }
+
+        .article-time {
+            color: #888;
+        }
+
+        /* Article Body */
+        .article-body {
+            padding: 40px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .article-body p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .dateline {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .drop-cap {
+            float: left;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.8;
+            margin: 0.1em 0.1em 0 0;
+            color: #000;
+        }
+
+        .quote-block {
+            border-left: 4px solid #d32f2f;
+            padding: 20px 0 20px 30px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-size: 4rem;
+            color: #d32f2f;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            margin-left: 20px;
+        }
+
+        .quote-attribution {
+            font-style: normal;
+            font-weight: 600;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .highlight-title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        .article-footer {
+            padding: 30px 40px;
+            border-top: 1px solid #e2e2e2;
+            background: #f8f9fa;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .editor-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            color: #856404;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .article-container {
-                margin: 10px;
-                padding: 15px;
+            .nyt-header-content {
+                flex-direction: column;
+                gap: 15px;
             }
-            
-            h1 {
-                font-size: 2rem;
+
+            .nyt-nav {
+                gap: 20px;
             }
+
+            .article-header {
+                padding: 30px 25px 25px;
+            }
+
+            .article-title {
+                font-size: 2.5rem;
+            }
+
+            .article-body {
+                padding: 30px 25px;
+                font-size: 1.1rem;
+            }
+
+            .main-container {
+                margin: 15px;
+            }
+        }
+
+        /* Interactive Elements */
+        .interactive-element {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 500;
+        }
+
+        .interactive-element:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Decorative Elements */
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(90deg, #d32f2f, #1976d2, #388e3c);
+            margin: 30px 0;
+            border-radius: 2px;
         }
     </style>
 </head>
 <body>
-    <div class="article-container">
-        <!-- Header -->
-        <header>
-            <h1>North Creek High Students Clash Over Parking Pass Allocation</h1>
-            <p class="byline">By Ibrahim Ansari</p>
-            <p class="date">Aug. 15, 2024</p>
+    <!-- NYT Header -->
+    <header class="nyt-header">
+        <div class="nyt-header-content">
+            <a href="#" class="nyt-logo">The New York Times</a>
+            <nav class="nyt-nav">
+                <a href="#">Home</a>
+                <a href="#">World</a>
+                <a href="#">U.S.</a>
+                <a href="#">Politics</a>
+                <a href="#">Education</a>
+                <a href="#">Opinion</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Article Container -->
+    <div class="main-container">
+        <!-- Article Header -->
+        <header class="article-header">
+            <div class="article-category">Education</div>
+            <h1 class="article-title">North Creek High Students Clash Over Parking Pass Allocation</h1>
+            <p class="article-subtitle">A debate over senior priority policies has sparked confusion and urgency among students as the new academic year approaches</p>
+            <div class="article-meta">
+                <span class="article-author">By Ibrahim Ansari</span>
+                <span class="article-date">Aug. 15, 2024</span>
+                <span class="article-time">Updated 2:30 p.m. ET</span>
+            </div>
         </header>
 
         <!-- Article Body -->
-        <article>
+        <article class="article-body">
             <p>
-                <span class="dateline">BOTHELL, Wash.</span> — As North Creek High School prepares for the upcoming academic year, a debate over parking pass distribution has ignited frustration among students — and uncertainty over whether seniors will get priority.
+                <span class="drop-cap">A</span>s North Creek High School prepares for the upcoming academic year, a debate over parking pass distribution has ignited frustration among students — and uncertainty over whether seniors will get priority.
             </p>
 
             <p>
                 In a group chat among rising seniors, the discussion quickly turned from logistical planning to policy confusion. According to Aman Kolli, a rising senior at North Creek High School, the school's approach to parking passes may not give upperclassmen the advantage they expect.
             </p>
 
-            <blockquote>
-                "No more groups for parking pass, first come first serve," Kolli wrote in the chat. "Spots are allocated by the form. So if 100 seniors filled out the form, the first 100 spots can only be taken by seniors — I think. That's what they did last year… Don't quote me, not sure."
-            </blockquote>
+            <div class="quote-block">
+                <div class="quote-text">
+                    "No more groups for parking pass, first come first serve," Kolli wrote in the chat. "Spots are allocated by the form. So if 100 seniors filled out the form, the first 100 spots can only be taken by seniors — I think. That's what they did last year… Don't quote me, not sure."
+                </div>
+                <div class="quote-attribution">— Aman Kolli, rising senior</div>
+            </div>
 
             <p>
                 The conversation included Ibrahim Ansari, also a rising senior, who responded enthusiastically to the idea of arriving early: "F** yeah, I'm showing up at 8:30."
             </p>
 
+            <div class="highlight-box">
+                <div class="highlight-title">Key Points</div>
+                <ul style="margin-left: 20px; line-height: 1.6;">
+                    <li>Parking passes now allocated on first-come, first-served basis</li>
+                    <li>Senior priority system appears to be eliminated</li>
+                    <li>Students planning early arrival to secure spots</li>
+                    <li>Policy confusion creating anxiety among upperclassmen</li>
+                </ul>
+            </div>
+
             <p>
                 But Ronak Singh, another rising senior, pointed out a flaw in the system. "Ibrahim, we get there at 8," Singh said, before realizing the implications. "Wait bruh, this is messed up. Sophomores can get passes before us — it's just based on first come first serve."
             </p>
+
+            <div class="decorative-line"></div>
 
             <p>
                 The parking pass system at North Creek High has historically been a contentious topic. While official school communications about the allocation process have yet to be released, the student chatter underscores the high stakes — and high stress — surrounding what is, for many, a key part of their daily routine.
@@ -127,12 +354,19 @@
             <p>
                 For seniors who see driving and parking on campus as a milestone of independence, the possibility of losing out to younger students has only fueled the urgency to arrive early and claim a spot. Whether the policy will ultimately match last year's approach remains to be seen.
             </p>
+
+            <div class="interactive-element">
+                📱 Share this article on social media
+            </div>
         </article>
 
-        <!-- Footer -->
-        <footer>
-            <p>
-                <em>*Editor's Note: This article contains language that may not be suitable for all readers.</em>
+        <!-- Article Footer -->
+        <footer class="article-footer">
+            <div class="editor-note">
+                <strong>Editor's Note:</strong> This article contains language that may not be suitable for all readers.
+            </div>
+            <p style="margin-top: 20px;">
+                <em>Follow Ibrahim Ansari on Twitter @ibrahimansari for more education coverage.</em>
             </p>
         </footer>
     </div>
